@@ -1,6 +1,8 @@
 # 2.2.27 (c0f36b0): /etc/dovecot/dovecot.conf
 # Pigeonhole version 0.4.16 (fed8554)
 # OS: Linux 4.13.0-32-generic x86_64 Ubuntu 17.10 
+# Enable installed protocols
+!include_try /usr/share/dovecot/protocols.d/*.protocol
 auth_verbose = yes
 disable_plaintext_auth = no
 info_log_path = /var/log/dovecot-info.log
