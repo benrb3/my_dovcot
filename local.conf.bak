@@ -1,0 +1,66 @@
+protocols = pop3 imap lmtp
+
+log_path = /var/log/dovecot.log
+info_log_path = /var/log/dovecot-info.log
+mail_location = mbox:~/mail:INBOX=/var/mail/%u
+disable_plaintext_auth = no
+mail_privileged_group = mail
+#ssl = yes
+#ssl_cert = </etc/ssl/certs/ssl-cert-snakeoil.pem
+#ssl_key  = </etc/ssl/private/ssl-cert-snakeoil.key
+
+protocol pop3 {
+    pop3_uidl_format = %08Xu%08Xv
+}
+
+#protocol imap {
+    #listen = *:143
+    #login_greeting_capability = yes
+    #imap_client_workarounds = tb-extra-mailbox-sep
+    #ssl_listen = *:993
+    #...
+#}
+
+service imap-login {
+  inet_listener imap {
+    #port = 143
+  }
+  inet_listener imaps {
+    #port = 993
+    #ssl = yes
+  }
+}
+
+service pop3-login {
+    inet_listener pop3 {
+    #port = 110
+  }
+  inet_listener pop3s {
+    #port = 995
+    #ssl = yes
+  }
+}
+
+service lmtp {
+  unix_listener lmtp {
+  }
+}
+
+
+#service lmtp {
+  #user = vmail
+  #executable = lmtp -L
+  #unix_listener lmtp {
+    #mode = 0666
+#  }
+  # Create inet listener only if you can't use the above UNIX socket
+  #inet_listener lmtp {
+    # Avoid making LMTP visible for the entire internet
+    #address =
+    #port = 
+  #}
+#}
+
+#protocol lmtp {
+  #info_log_path = /var/log/dovecot-lmtp.log
+#}
