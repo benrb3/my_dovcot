@@ -1,1 +1,7 @@
 Generated ben@kreitzrd.lan password with 'doveadm pw' and pasted into /etc/mail/passwd
+
+Thunderbird configuration:
+  Server Name: mail.kreitzrd.lan
+  User Name: ben@kreitzrd.lan
+  Connection security: None
+  Authentication method: Password, transmitted insecurely
