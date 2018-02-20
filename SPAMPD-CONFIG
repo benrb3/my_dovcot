@@ -1,0 +1,11 @@
+Install spampd: apt install spampd
+
+spampd configuration is found in /etc/default/spampd
+
+Need an iptables rule for forwarding/redirecting incoming mail to 127.0.0.1:10025
+  iptables -t nat -I PREROUTING -p tcp -i enp0s3 --dport 25 -j DNAT --to-destination 127.0.0.1:10025
+And a sysctl directive to enable forwarding of traffic to the loopback network:
+  sysctl -w net.ipv4.conf.all.route_localnet=1
+
+Need to install netfilter-persistent to make firewall rule effective after reboot:
+  apt install netfilter-persistent
