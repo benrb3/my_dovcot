@@ -5,3 +5,7 @@ Thunderbird configuration:
   User Name: ben@kreitzrd.lan
   Connection security: STARTTLS
   Authentication method: Normal password
+
+  In Junk settings in ben@kreitzrd.lan account:
+    Trust junk mail headers set by: SpamAssassin
+    Move new junk messages to: Junk folder on ben@kreitzrd.lan

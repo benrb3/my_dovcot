@@ -9,3 +9,5 @@ And a sysctl directive to enable forwarding of traffic to the loopback network:
 
 Need to install netfilter-persistent to make firewall rule effective after reboot:
   apt install netfilter-persistent
+
+Have enabled Thunderbird to respect spampd headers and move spam messages to Junk folder.
