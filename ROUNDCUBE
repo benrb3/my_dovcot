@@ -1,0 +1,10 @@
+Followed these installation directions: 
+  https://help.ubuntu.com/community/Roundcube
+
+Configuration notes:
+  mySQL roundcube database name: roundcube
+  username for roundcube: roundcube@localhost
+  password: letmein
+
+  mySQL root password: letmein
+
