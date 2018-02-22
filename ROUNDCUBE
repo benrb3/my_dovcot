@@ -1,10 +1,42 @@
 Followed these installation directions: 
   https://help.ubuntu.com/community/Roundcube
 
+---
 Configuration notes:
   mySQL roundcube database name: roundcube
   username for roundcube: roundcube@localhost
   password: letmein
-
   mySQL root password: letmein
 
+---
+To enable SSL connection, edit /etc/roundcube/defaults.inc.php:
+  $config['use_https'] = true;  (default is false)
+  Then go to:  https://mail.kreitzrd.lan/roundcube
+  (You get a warning from the browser when using a self-signed certificate)
+
+---
+Added this additional alias to /etc/roundcube/apache.conf:
+  Alias /webmail /var/lib/roundcube
+
+---
+Added these two directives to the end of /etc/roundcube/apache.conf:
+<IfModule mod_rewrite.c>
+  <IfModule mod_ssl.c>
+    <Location /webmail>
+      RewriteEngine on
+      RewriteCond %{HTTPS} !^on$ [NC]
+      RewriteRule . https://%{HTTP_HOST}:8080%{REQUEST_URI}  [L]
+
+    </Location>
+  </IfModule>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  <IfModule mod_ssl.c>
+    <Location /roundcube>
+      RewriteEngine on
+      RewriteCond %{HTTPS} !^on$ [NC]
+      RewriteRule . https://%{HTTP_HOST}:8080%{REQUEST_URI}  [L]
+    </Location>
+  </IfModule>
+</IfModule>
