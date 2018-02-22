@@ -3,7 +3,7 @@ Generated ben@kreitzrd.lan password with 'doveadm pw' and pasted into /etc/mail/
 Thunderbird configuration:
   Server Name: mail.kreitzrd.lan
   User Name: ben@kreitzrd.lan
-  Connection security: STARTTLS
+  Connection security: SSL/TLS port 993
   Authentication method: Normal password
 
   In Junk settings in ben@kreitzrd.lan account:
