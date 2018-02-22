@@ -1,4 +1,6 @@
 Generated ben@kreitzrd.lan password with 'doveadm pw' and pasted into /etc/mail/passwd
+Then add a line like this for each virtual user in /etc/mail/virtuals:
+  ben@kreitzrd.lan           vmail
 
 Thunderbird configuration:
   Server Name: mail.kreitzrd.lan
