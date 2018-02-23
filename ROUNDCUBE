@@ -17,26 +17,4 @@ To enable SSL connection, edit /etc/roundcube/defaults.inc.php:
 ---
 Added this additional alias to /etc/roundcube/apache.conf:
   Alias /webmail /var/lib/roundcube
-
----
-Added these two directives to the end of /etc/roundcube/apache.conf:
-<IfModule mod_rewrite.c>
-  <IfModule mod_ssl.c>
-    <Location /webmail>
-      RewriteEngine on
-      RewriteCond %{HTTPS} !^on$ [NC]
-      RewriteRule . https://%{HTTP_HOST}:8080%{REQUEST_URI}  [L]
-
-    </Location>
-  </IfModule>
-</IfModule>
-
-<IfModule mod_rewrite.c>
-  <IfModule mod_ssl.c>
-    <Location /roundcube>
-      RewriteEngine on
-      RewriteCond %{HTTPS} !^on$ [NC]
-      RewriteRule . https://%{HTTP_HOST}:8080%{REQUEST_URI}  [L]
-    </Location>
-  </IfModule>
-</IfModule>
+  Then you can go to: https://mail.kreitzrd.lan/webmail
