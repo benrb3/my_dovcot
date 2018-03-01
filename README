@@ -1,8 +1,10 @@
-Generated ben@kreitzrd.lan password with 'doveadm pw' and pasted into /etc/mail/passwd
+Generated ben@kreitzrd.lan password with 'smtpctl encrypt' and pasted into /etc/mail/passwd
+(do not place the colons after the password)
+
 Then add a line like this for each virtual user in /etc/mail/virtuals:
   ben@kreitzrd.lan           vmail
 
-Thunderbird configuration:
+Thunderbird Server Settings configuration:
   Server Name: mail.kreitzrd.lan
   User Name: ben@kreitzrd.lan
   Connection security: SSL/TLS port 993
@@ -11,3 +13,9 @@ Thunderbird configuration:
   In Junk settings in ben@kreitzrd.lan account:
     Trust junk mail headers set by: SpamAssassin
     Move new junk messages to: Junk folder on ben@kreitzrd.lan
+
+  Outgoing SMTP Server Settings:
+    Server name: mail.kreitzrd.lan
+    Port 587
+    Connection security: STARTTLS
+    Username: ben@kreitzrd.lan
