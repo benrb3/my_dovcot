@@ -2,4 +2,8 @@ Install spampd: apt install spampd
 
 spampd configuration is found in /etc/default/spampd
 
+And a sysctl directive to enable forwarding of traffic to the loopback network:
+  sysctl -w net.ipv4.conf.all.route_localnet = 1 (only temporary, won't survive reboot)
+  echo 'net.ipv4.conf.all.route_localnet = 1' >> /etc/sysctl.conf   ...to make permanent.
+
 Have configured Thunderbird to respect spampd headers and move spam messages to Junk folder.
